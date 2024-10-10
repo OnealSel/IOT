@@ -25,7 +25,7 @@ int main() {
     scheduler.simulation();
 
     // Libérer la mémoire
-    delete tempSensor;
+    delete tempSensor;//liberer
     delete humidSensor;
     delete lightSensor;
 
