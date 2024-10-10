@@ -1,12 +1,9 @@
- #ifndef LIGHT_SENSOR_H
-#define LIGHT_SENSOR_H
+#include "LightSensor.h"
 
-#include "Sensor.h"
+LightSensor::LightSensor(Server* server, int interval)
+    : Sensor("Light", server, interval) {}
 
-class LightSensor : public Sensor {
-public:
-    LightSensor(Server* server, int interval);
-    virtual std::string generateData() override;
-};
-
-#endif
+std::string LightSensor::generateData() {
+    bool lightOn = rand() % 2;
+    return "Light Sensor ID " + std::to_string(id) + ": " + (lightOn ? "ON" : "OFF");
+}
